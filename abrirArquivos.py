@@ -5,7 +5,6 @@ base_url = "https://api.telegram.org/bot6279111723:AAFupEKg0K4Lgc1jORaUp0i2buJzs
 
 endereco = [
     "https://prnt.sc/b36ozWyfYhEq",
-    "https://prnt.sc/VBdBUScZhmaP",
     "https://prnt.sc/h3ud_g554qAP"
 ]
 for assinaturas in endereco:

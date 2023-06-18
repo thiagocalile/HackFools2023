@@ -15,6 +15,4 @@ for assinaturas in endereco:
     }
 
 
-
     resp = requests.get(base_url, data = parameters)
-    print(resp.text)

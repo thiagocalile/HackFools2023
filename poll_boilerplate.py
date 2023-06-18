@@ -85,6 +85,10 @@ async def poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     }
     context.bot_data.update(payload)
 
+    file = open(date.today().strftime("%Y%m%d") + ".json", "a")
+    file.write(json.dumps([]))
+    file.close()
+
 async def receive_poll_answer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Summarize a users poll vote"""
     answer = update.poll_answer
@@ -113,7 +117,9 @@ async def receive_poll_answer(update: Update, context: ContextTypes.DEFAULT_TYPE
                   "response":answer_string
                   }
 
-    file = open(date.today().strftime("%Y%m%d") + ".json", "a")
+    filepath = "./usuarios/@" + answerdict["username"] + "/" + date.today().strftime("%Y%m%d") + ".json"
+
+    file = open(filepath, "a")
     file.write(json.dumps(answerdict))
     file.close()
 

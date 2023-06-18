@@ -11,6 +11,7 @@ import logging
 import dia
 import json 
 from datetime import date 
+import requests
 
 from telegram import __version__ as TG_VER
 
@@ -64,26 +65,29 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     )
 
 async def poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Sends a predefined poll"""
-    questions = ["Sim", "Não"]
-    message_string = "Hoje é " + dia.diaSemana() + ", " + dia.data() +".\n" + "Hoje, você tem: " + dia.materiaDia() + "."
-    message = await context.bot.send_poll(
-        update.effective_chat.id,
-        message_string,
-        questions,
-        is_anonymous=False,
-        allows_multiple_answers=False,
-    )
-    # Save some info about the poll the bot_data for later use in receive_poll_answer
-    payload = {
-        message.poll.id: {
-            "questions": questions,
-            "message_id": message.message_id,
-            "chat_id": update.effective_chat.id,
-            "answers": 0,
+    if dia.d1 == 0 or dia.d1 == 6:
+        requests.post("https://api.telegram.org/bot6279111723:AAFupEKg0K4Lgc1jORaUp0i2buJzs2lbNSU/sendMessage", json={'chat_id': -990175615, 'text': "Hoje é " + dia.diaSemana() + ". Não tem aula."} )
+    else:
+        """Sends a predefined poll"""
+        questions = ["Sim", "Não"]
+        message_string = "Hoje é " + dia.diaSemana() + ", " + dia.data() +".\n" + "Hoje, você tem: " + dia.materiaDia() + "."
+        message = await context.bot.send_poll(
+            update.effective_chat.id,
+            message_string,
+            questions,
+            is_anonymous=False,
+            allows_multiple_answers=False,
+        )
+        # Save some info about the poll the bot_data for later use in receive_poll_answer
+        payload = {
+            message.poll.id: {
+                "questions": questions,
+                "message_id": message.message_id,
+                "chat_id": update.effective_chat.id,
+                "answers": 0,
+            }
         }
-    }
-    context.bot_data.update(payload)
+        context.bot_data.update(payload)
 
 async def receive_poll_answer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Summarize a users poll vote"""

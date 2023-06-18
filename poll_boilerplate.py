@@ -99,6 +99,11 @@ async def receive_poll_answer(update: Update, context: ContextTypes.DEFAULT_TYPE
             answer_string += questions[question_id] + " and "
         else:
             answer_string += questions[question_id]
+    #await context.bot.send_message(
+    #    answered_poll["chat_id"],
+    #    f"{update.effective_user.mention_html()} feels {answer_string}!",
+    #    parse_mode=ParseMode.HTML,
+    #)
     await context.bot.send_message(
         answered_poll["chat_id"],
         f"{update.effective_user.mention_html()} feels {answer_string}!",

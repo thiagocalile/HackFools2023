@@ -1,12 +1,21 @@
 from datetime import date
 today = date.today()
 
-dia = int(today.strftime("%w"))
+d1 = int(today.strftime("%w"))
 #print("d1 =", d1)
-materia94 = [("IP, Calc"), ("TADI, SMD"), ("RP"), ("FSI, IP"), ("Calc, FSI")]
+materia94 = ["Sem aula", ("IP, Calc"), ("TADI, SMD"), ("RP"), ("FSI, IP"), ("Calc, FSI"),"Sem aula"]
+dSemana = ["Domingo","Segunda", "Terça", "Quarta", "Quinta","Sexta","Sabado"]
 
-if dia == 0 or dia == 6:
-    pass
-else:
-    print("Hoje é", dia, "" materia94[dia-1])
 
+def diaSemana():
+    return dSemana[d1]
+
+def materiaDia():
+    return materia94[d1]
+
+def data():
+    return today.strftime("%d/%m/%y")
+
+print(diaSemana())
+print(materiaDia())
+print(data())

@@ -4,9 +4,9 @@ import time
 base_url = "https://api.telegram.org/bot6279111723:AAFupEKg0K4Lgc1jORaUp0i2buJzs2lbNSU/sendPhoto"
 
 endereco = [
-    "usuarios/@calilecosta/photo1687112628 (2).jpeg",
-    "usuarios/@OKuramae/photo1687112628 (1).jpeg",
-    "usuarios/@pedrofioravanti/photo1687112628.jpeg"
+    "https://prnt.sc/b36ozWyfYhEq",
+    "https://prnt.sc/VBdBUScZhmaP",
+    "https://prnt.sc/h3ud_g554qAP"
 ]
 for assinaturas in endereco:
     parameters = {

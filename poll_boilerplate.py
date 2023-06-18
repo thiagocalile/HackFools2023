@@ -60,8 +60,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         " to generate a preview for your poll"
     )
 
-
-
 async def poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Sends a predefined poll"""
     questions = ["Good", "Really good", "Fantastic", "Great"]
@@ -124,4 +122,4 @@ async def receive_poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 async def help_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Display a help message"""
-    await update.message.reply_text("Use /quiz, /poll or /preview to test this bot.")
+    await update.message.reply_text("Use /poll to test this bot.")

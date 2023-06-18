@@ -16,6 +16,3 @@ def materiaDia():
 def data():
     return today.strftime("%d/%m/%y")
 
-print(diaSemana())
-print(materiaDia())
-print(data())

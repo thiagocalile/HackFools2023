@@ -9,6 +9,8 @@ one the user sends the bot
 """
 import logging
 import dia
+import json 
+from datetime import date 
 
 from telegram import __version__ as TG_VER
 
@@ -104,11 +106,19 @@ async def receive_poll_answer(update: Update, context: ContextTypes.DEFAULT_TYPE
     #    f"{update.effective_user.mention_html()} feels {answer_string}!",
     #    parse_mode=ParseMode.HTML,
     #)
-    await context.bot.send_message(
-        answered_poll["chat_id"],
-        f"{update.effective_user.mention_html()} feels {answer_string}!",
-        parse_mode=ParseMode.HTML,
-    )
+
+    answerdict = {"firstName":update.effective_user.first_name,
+                  "id":update.effective_user.id,
+                  "username":update.effective_user.username,
+                  "response":answer_string
+                  }
+
+    file = open(date.today().strftime("%Y%m%d") + ".json", "a")
+    file.write(json.dumps(answerdict))
+    file.close()
+
+    print(answerdict)
+
     answered_poll["answers"] += 1
     # Close poll after three participants voted
     if answered_poll["answers"] == TOTAL_VOTER_COUNT:

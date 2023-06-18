@@ -3,17 +3,19 @@ import time
 
 base_url = "https://api.telegram.org/bot6279111723:AAFupEKg0K4Lgc1jORaUp0i2buJzs2lbNSU/sendPhoto"
 
-my_file = open("/content/sample_data/My_Image.png", "rb")
+endereco = [
+    "https://prnt.sc/b36ozWyfYhEq",
+    "https://prnt.sc/VBdBUScZhmaP",
+    "https://prnt.sc/h3ud_g554qAP"
+]
+for assinaturas in endereco:
+    parameters = {
+        "chat_id" : "-990175615",
+        "photo" : assinaturas,
+        "caption" : "Assina aí pra mim."
+    }
 
-parameters = {
-    "chat_id" : "-990175615",
-    "caption" : "Assina aí pra mim."
-}
 
 
-files = {
-    "photo" : my_file
-}
-
-resp = requests.get(base_url, data = parameters, files=files)
-print(resp.text)
+    resp = requests.get(base_url, data = parameters)
+    print(resp.text)

@@ -3,7 +3,7 @@ today = date.today()
 
 d1 = int(today.strftime("%w"))
 #print("d1 =", d1)
-materia94 = ["Sem aula", "IP e Calc", "TADI e SMD", "RP", "FSI e IP", "Calc e FSI","Sem aula"]
+materia94 = ["Sem aula", "Introdução à Programação e Cálculo", "Tratamento e Análise de Dados e Sociedade, Multiculturalismo e Direitos Humanos", "Resolução de Problemas", "Fundamentos dos Sistemas de Informação e Introdução à Programação", "Cálculo e Fundamentos dos Sistemas de Informação","Sem aula"]
 dSemana = ["Domingo","Segunda", "Terça", "Quarta", "Quinta","Sexta","Sabado"]
 
 

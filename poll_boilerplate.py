@@ -89,9 +89,9 @@ async def poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         }
         context.bot_data.update(payload)
 
-    file = open(date.today().strftime("%Y%m%d") + ".json", "a")
-    file.write(json.dumps([]))
-    file.close()
+        file = open(date.today().strftime("%Y%m%d") + ".json", "a")
+        file.write(json.dumps([]))
+        file.close()
 
 async def receive_poll_answer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Summarize a users poll vote"""

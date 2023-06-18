@@ -8,6 +8,7 @@ poll/quiz the bot generates. The preview command generates a closed poll/quiz, e
 one the user sends the bot
 """
 import logging
+import dia
 
 from telegram import __version__ as TG_VER
 
@@ -62,13 +63,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Sends a predefined poll"""
-    questions = ["Good", "Really good", "Fantastic", "Great"]
+    questions = ["Sim", "Não"]
+    message_string = "Hoje é " + dia.diaSemana() + ", " + dia.data() +".\n" + "Hoje, você tem: " + dia.materiaDia() + "."
     message = await context.bot.send_poll(
         update.effective_chat.id,
-        "How are you?",
+        message_string,
         questions,
         is_anonymous=False,
-        allows_multiple_answers=True,
+        allows_multiple_answers=False,
     )
     # Save some info about the poll the bot_data for later use in receive_poll_answer
     payload = {

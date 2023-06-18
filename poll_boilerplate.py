@@ -65,9 +65,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     )
 
 async def poll(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    if dia.d1 == 0 or dia.d1 == 6:
-        requests.post("https://api.telegram.org/bot6279111723:AAFupEKg0K4Lgc1jORaUp0i2buJzs2lbNSU/sendMessage", json={'chat_id': -990175615, 'text': "Hoje é " + dia.diaSemana() + ". Não tem aula."} )
-    else:
+    #if dia.d1 == 0 or dia.d1 == 6:
+    #    requests.post("https://api.telegram.org/bot6279111723:AAFupEKg0K4Lgc1jORaUp0i2buJzs2lbNSU/sendMessage", json={'chat_id': -990175615, 'text': "Hoje é " + dia.diaSemana() + ". Não tem aula."} )
+    #Selse:
         """Sends a predefined poll"""
         questions = ["Sim", "Não"]
         message_string = "Hoje é " + dia.diaSemana() + ", " + dia.data() +".\n" + "Hoje, você tem: " + dia.materiaDia() + "."
